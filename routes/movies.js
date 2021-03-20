@@ -3,8 +3,11 @@ let Movie = require('../models/movie.model');
 
 router.route('/').get((req, res) => {
     Movie.find()
-        .then(movies => res.json(movies))
-        .catch(err => res.status(400).json('Error : ' + err));
+        .then(movies => res.json({
+            message: "Data Fetched",
+            movie: movies
+        })
+        ).catch(err => res.status(400).json('Error : ' + err));
 });
 
 router.route('/add').post((req, res) => {
@@ -28,12 +31,12 @@ router.route('/add').post((req, res) => {
     });
 
     newMovie.save()
-        .then(() => res.json('Movie added!'))
+        .then(() => res.json({message:'Movie added!'}))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/:id').get((req, res) => {
     Movie.findById(req.params.id)
-        .then(movie => res.json(movie))
+        .then(movie => res.json({message:"Data Fetched", movie: movie}))
         .catch(err => res.status(400).json('error: ' + err));
 });
 router.route('/:id').delete((req, res) => {
