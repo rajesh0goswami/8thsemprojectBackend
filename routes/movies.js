@@ -98,7 +98,7 @@ router.route('/update/:id').patch((req, res) => {
         })
         .catch(err => res.status(400).json('Error:' + err));
 })
-router.route('/update1/:id').post((req, res) => {
+router.route('/update1/:id').put((req, res) => {
     Movie.findById(req.params.id)
         .then(movie => {
             movie.moviename = req.body.moviename;
