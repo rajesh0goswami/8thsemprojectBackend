@@ -12,6 +12,7 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const moviename = req.body.moviename;
     const imglink = req.body.imglink;
+    const revinue = req.body.revinue;
     const description = req.body.description;
     const price = Number(req.body.price);
     const date = Date.parse(req.body.date);
@@ -30,6 +31,7 @@ router.route('/add').post((req, res) => {
 
     const newMovie = new Movie({
         moviename,
+        revinue,
         imglink,
         description,
         releaseDate,
@@ -72,6 +74,7 @@ router.route('/update/:id').patch((req, res) => {
             // movie.showTime = req.body.showTime;
             // movie.price = req.body.price;
             // movie.date = Date.parse(req.body.date);
+            movie.revinue = req.body.revinue;
             movie.A1.available = req.body.A1.available;
             movie.A1.occupiedby = req.body.A1.occupiedby;
             movie.A2.available = req.body.A2.available;

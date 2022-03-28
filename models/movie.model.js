@@ -11,6 +11,7 @@ class Seat {
 const movieSchema = new Schema({
     moviename: { type: String, required: true },
     imglink: { type: String, required: true },
+    revinue: { type: Number, required: true },
     description: { type: String, required: true },
     releaseDate: { type: String, required: true },
     showTime: { type: String, required: true },
