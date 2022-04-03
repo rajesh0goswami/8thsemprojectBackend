@@ -8,7 +8,13 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error : ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+    User.findById(req.params.id)
+        .then(user => res.json({ message: "Data Fetched", user: user }))
+        .catch(err => res.status(400).json('error: ' + err));
+});
 router.route('/register').post((req, res) => {
+    const History = req.body.History;
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
@@ -65,5 +71,21 @@ router.route('/login').post((req, res) => {
 
     })
 })
+
+router.route('/update1/:id').put((req, res) => {
+    User.findById(req.params.id)
+        .then(user => {
+            History = req.body.History;
+            username = req.body.username;
+            email = req.body.email;
+            password = req.body.password;
+            role = req.body.role;
+            user.save()
+                .then(() => res.json('user updated'))
+                .catch(err => res.status(400).json('Error : ' + err));
+        })
+        .catch(err => res.status(400).json('Error:' + err));
+})
+
 
 module.exports = router;

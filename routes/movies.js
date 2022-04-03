@@ -13,6 +13,7 @@ router.route('/add').post((req, res) => {
     const moviename = req.body.moviename;
     const imglink = req.body.imglink;
     const revinue = req.body.revinue;
+    const Genre = req.body.Genre;
     const description = req.body.description;
     const price = Number(req.body.price);
     const date = Date.parse(req.body.date);
@@ -48,6 +49,7 @@ router.route('/add').post((req, res) => {
         A8,
         A9,
         A10,
+        Genre,
     });
 
     newMovie.save()

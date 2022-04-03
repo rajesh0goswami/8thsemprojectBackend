@@ -18,6 +18,7 @@ const movieSchema = new Schema({
     price: { type: Number, required: true },
     date: { type: String, required: true },
     // A1: { type: String },
+    Genre: { type: String, required: true },
     A1: {
         available: { type: Boolean },
         occupiedby: { type: String }

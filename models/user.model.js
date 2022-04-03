@@ -18,6 +18,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    History: {
+        type: Array,
+        required: true
+    },
     role: {
         type: String
     }
