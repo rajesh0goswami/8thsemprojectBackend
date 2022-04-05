@@ -22,7 +22,7 @@ router.route('/register').post((req, res) => {
     const newUser = new User({ username, email, password, role });
 
     newUser.save()
-        .then(() => res.json('User added!'))
+        .then(() => res.json({ message: "user saved" }))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/login').post((req, res) => {
@@ -75,11 +75,12 @@ router.route('/login').post((req, res) => {
 router.route('/update1/:id').put((req, res) => {
     User.findById(req.params.id)
         .then(user => {
-            History = req.body.History;
-            username = req.body.username;
-            email = req.body.email;
-            password = req.body.password;
-            role = req.body.role;
+            console.log(req.params.id);
+            user.History = req.body.History;
+            user.username = req.body.username;
+            user.email = req.body.email;
+            user.password = req.body.password;
+            user.role = req.body.role;
             user.save()
                 .then(() => res.json('user updated'))
                 .catch(err => res.status(400).json('Error : ' + err));
