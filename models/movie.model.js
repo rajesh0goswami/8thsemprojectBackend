@@ -19,6 +19,7 @@ const movieSchema = new Schema({
     date: { type: String, required: true },
     // A1: { type: String },
     Genre: { type: String, required: true },
+    trailerlink: { type: String, required: true },
     A1: {
         available: { type: Boolean },
         occupiedby: { type: String }

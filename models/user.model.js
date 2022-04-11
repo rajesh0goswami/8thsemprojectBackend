@@ -18,8 +18,8 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    History: {
-        type: Array,
+    historyData: {
+        type: String,
         required: true
     },
     role: {

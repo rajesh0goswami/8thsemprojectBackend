@@ -14,7 +14,7 @@ router.route('/:id').get((req, res) => {
         .catch(err => res.status(400).json('error: ' + err));
 });
 router.route('/register').post((req, res) => {
-    const History = req.body.History;
+    const historyData = req.body.historyData;
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
@@ -76,7 +76,7 @@ router.route('/update1/:id').put((req, res) => {
     User.findById(req.params.id)
         .then(user => {
             console.log(req.params.id);
-            user.History = req.body.History;
+            user.historyData = req.body.historyData;
             user.username = req.body.username;
             user.email = req.body.email;
             user.password = req.body.password;

@@ -12,6 +12,7 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const moviename = req.body.moviename;
     const imglink = req.body.imglink;
+    const trailerlink = req.body.trailerlink;
     const revinue = req.body.revinue;
     const Genre = req.body.Genre;
     const description = req.body.description;
@@ -34,6 +35,7 @@ router.route('/add').post((req, res) => {
         moviename,
         revinue,
         imglink,
+        trailerlink,
         description,
         releaseDate,
         showTime,
